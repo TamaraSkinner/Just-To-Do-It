@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="To-DoStyle.css" />
+    <script src="To-Do.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-top">
+        <h1>Welcome (Insert Name)!</h1>
+      </div>
+    </header>
+    <br />
+    <main class="main">
+      <section class="todo-header">
+        <div class="todo-header-left">
+          <h2>Today's Tasks</h2>
+        </div>
+        <div class="todo-header-right">
+          <button type="submit" onclick="" class="addTask-Btn">
+            + Add Task
+          </button>
+          <button type="submit" onclick="">Search</button>
+          <button type="submit" onclick="">Sort</button>
+          <button type="submit" onclick="">Filter</button>
+        </div>
+      </section>
+
+      <section class="todos">
+        <div class="tabs" role="tablist" aria-label="Task sections">
+          <button
+            class="tab is-active"
+            role="tab"
+            aria-selected="true"
+            data-tab="todo"
+          >
+            To-Do's
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            data-tab="progress"
+          >
+            In-Progress
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            data-tab="completed"
+          >
+            Completed
+          </button>
+          <button
+            class="tab tab--add"
+            role="tab"
+            aria-selected="false"
+            data-tab="add"
+          >
+            +
+          </button>
+        </div>
+        <div class="tab-container">
+          <section class="todo-list" aria-label="Task list">
+            <form class="task-form is hidden" autocomplete="off">
+              <div class="task-form_row">
+                <label class="task-form_label" for="taskDesc"
+                  >Description</label
+                >
+                <input
+                  id="taskDesc"
+                  name="description"
+                  type="text"
+                  placeholder="e.g., Finish project report"
+                  required
+                />
+              </div>
+
+              <div class="task-form_row task-form_row--3">
+                <div class="task-form_feild">
+                  <label class="task-form_label" for="taskStart">Start</label>
+                  <input id="taskStart" name="start" type="date" required />
+                </div>
+
+                <div class="task-form_feild">
+                  <label class="task-form_label" for="taskDeadline"
+                    >Deadline</label
+                  >
+                  <input
+                    id="taskDeadline"
+                    name="deadline"
+                    type="date"
+                    required
+                  />
+                </div>
+
+                <div class="task-form_feild">
+                  <label class="task-form_label" for="taskPriority"
+                    >Priority</label
+                  >
+                  <select id="taskPriority" name="priority" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+
+            <div class="task-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

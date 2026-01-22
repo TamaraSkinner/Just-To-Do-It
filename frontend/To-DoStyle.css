@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f2fd;
+}
+
+:root {
+    --tab-bg-active: #fff;
+}
+
+.header-top {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    height: 100px;
+    font-style: italic;
+    background: linear-gradient(
+        80deg, 
+        rgb(139, 229, 251),
+        rgba(57, 165, 253, 0.9),
+        rgba(0, 64, 255, 0.9));
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.main {
+    margin: auto 150px;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 30px;
+    font-size: 30px;
+    font-style: italic;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.todo-header button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.todos {
+    margin-top: 40px;
+}
+
+/* ---- Tabs Styling ---- */
+.tabs {
+    --tab-h: 44px;
+    --tab-pad-x: 30px;
+    --tab-gap: -5px;
+    --tab-top-inset: 22px;
+    --tab-shoulder: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: var(--tab-gap);
+    margin: auto 20px;
+    position: relative;
+}
+
+.tab {
+    height: var(--tab-h);
+    padding: 0 var(--tab-pad-x);
+    border: 0;
+    cursor: pointer;
+    margin-left: -18px;
+
+    /*text*/
+    font: 700 20px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: black;
+
+    /*folder body*/
+    background: var(--tab-bg, #ddd);
+    position: relative;
+    z-index: 1;
+
+    /*folder cut*/
+    clip-path: polygon(
+        0% 100%,
+        0% var(--tab-shoulder),
+        var(--tab-top-inset) 0%,
+        calc(100% - var(--tab-top-inset)) 0%,
+        100% var(--tab-shoulder),
+        100% 100%
+    );
+
+    /*depth line*/
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+
+}
+
+/*hover*/
+.tab:hover {
+    filter: brightness(0.95);
+}
+
+.tab:first-child {
+    margin-left: 0;
+}   
+
+/*color variants*/
+.tab:nth-child(1) {z-index: 4; --tab-bg:rgba(255, 182, 193, 0.95); }
+.tab:nth-child(2) {z-index: 3; --tab-bg: rgba(255, 255, 102, 0.95); }
+.tab:nth-child(3) {z-index: 2; --tab-bg: rgba(144, 238, 144, 0.95); }
+.tab:nth-child(4) {z-index: 1; --tab-bg: rgba(175, 189, 233, 0.95); }
+
+.tab.is-active {
+    z-index: 10;
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+}
+
+
+.tab-container {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: auto 20px;
+    background: linear-gradient(
+        180deg, 
+        var(--tab-bg-active) 0%, 
+        #f0f8ff 70%
+        );
+
+    min-height: 300px;
+}
+
+/*Task form*/
+.task-form {
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    margin-bottom: 0.5rem 0 1rem 0;
+}
+
+.task-form.is-hidden {
+    display: none;
+}
+
+.task-form_row {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    background: transparent;
+}
+
+.task-form_row--3 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.task-form_feild {
+    display: grid;
+    gap: 0.3rem;
+    background: transparent;
+}
+
+.task-form__label {
+  font: 700 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: transparent;
+}
+
+.task-form_feild input,
+.task-form_feild select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
