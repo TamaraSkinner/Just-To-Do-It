@@ -20,12 +20,12 @@
           <h2>Today's Tasks</h2>
         </div>
         <div class="todo-header-right">
-          <button type="submit" onclick="" class="addTask-Btn">
-            + Add Task
+          <button type="button" id="addTaskBtn" class="addTask-Btn">
+            <img class="head-icon" src="/frontend/assets/images/add.png" alt="Add Task">Add Task
           </button>
-          <button type="submit" onclick="">Search</button>
-          <button type="submit" onclick="">Sort</button>
-          <button type="submit" onclick="">Filter</button>
+          <button type="submit" onclick=""> <img class="head-icon" src="/frontend/assets/images/search.png" alt="Search">Search</button>
+          <button type="submit" onclick=""> <img class="head-icon" src="/frontend/assets/images/sort.png" alt="Sort">Sort</button>
+          <button type="submit" onclick=""> <img class="head-icon" src="/frontend/assets/images/filter.png" alt="Filter">Filter</button>
         </div>
       </section>
 
@@ -37,7 +37,7 @@
             aria-selected="true"
             data-tab="todo"
           >
-            To-Do's
+            <span class="tab_label">To-Do's</span>
           </button>
           <button
             class="tab"
@@ -45,7 +45,7 @@
             aria-selected="false"
             data-tab="progress"
           >
-            In-Progress
+            <span class="tab_label">In-Progress</span>
           </button>
           <button
             class="tab"
@@ -53,7 +53,7 @@
             aria-selected="false"
             data-tab="completed"
           >
-            Completed
+            <span class="tab_label">Completed</span>
           </button>
           <button
             class="tab tab--add"
@@ -61,44 +61,26 @@
             aria-selected="false"
             data-tab="add"
           >
-            +
+            <span class="tab_label">+</span>
           </button>
         </div>
         <div class="tab-container">
           <section class="todo-list" aria-label="Task list">
-            <form class="task-form is hidden" autocomplete="off">
-              <div class="task-form_row">
+            <form class="task-form is-hidden" autocomplete="off">
+              <div class="task-form_row">  
                 <label class="task-form_label" for="taskDesc"
-                  >Description</label
-                >
-                <input
+                  >Description</label>  
+                <textarea
                   id="taskDesc"
                   name="description"
-                  type="text"
+                  rows="4"
                   placeholder="e.g., Finish project report"
                   required
-                />
+                ></textarea>
               </div>
 
               <div class="task-form_row task-form_row--3">
-                <div class="task-form_feild">
-                  <label class="task-form_label" for="taskStart">Start</label>
-                  <input id="taskStart" name="start" type="date" required />
-                </div>
-
-                <div class="task-form_feild">
-                  <label class="task-form_label" for="taskDeadline"
-                    >Deadline</label
-                  >
-                  <input
-                    id="taskDeadline"
-                    name="deadline"
-                    type="date"
-                    required
-                  />
-                </div>
-
-                <div class="task-form_feild">
+                <div class="task-form_field">
                   <label class="task-form_label" for="taskPriority"
                     >Priority</label
                   >
@@ -108,6 +90,39 @@
                     <option value="high">High</option>
                   </select>
                 </div>
+
+                <div class="task-form_field">
+                  <label class="task-form_label" for="taskStatus"
+                    >Status</label
+                  >
+                  <select id="taskStatus" name="status" required>
+                    <option value="todo">To-Do</option>
+                    <option value="in-progress">In-Progress</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </div>
+
+                <div class="task-form_field">
+                  <label class="task-form_label" for="taskStart">Start</label>
+                  <input id="taskStart" name="start" type="date"  />
+                </div>
+
+                <div class="task-form_field">
+                  <label class="task-form_label" for="taskDeadline"
+                    >Deadline</label
+                  >
+                  <input
+                    id="taskDeadline"
+                    name="deadline"
+                    type="date"
+                    
+                  />
+                </div> 
+              </div>
+              <div></div>
+              <div class="task-form_actions">
+                <button class="edit-save-btn" type="button">Save <img class="save-delete-icon" src="/frontend/assets/images/save.png" alt="Save"></button>
+                <button class="delete-btn" type="button">Delete <img class="save-delete-icon" src="/frontend/assets/images/delete.png" alt="Delete"></button>
               </div>
             </form>
 
